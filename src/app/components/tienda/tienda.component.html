@@ -1,0 +1,24 @@
+<div class="row">
+    <div class="container">
+        <h2>Productos disponibles</h2>
+        <br>
+        <ul>
+            <li *ngFor="let producto of projects" class="project">
+                <a [routerLink]="['/detallePro',producto._id]">
+                    <img src="{{url+'getImage/'+producto.image}}" alt="" style="height: 180px;">
+                    <h3>{{ producto.nombre }}</h3>
+                    <p> {{ producto.descripcion }}</p>
+                    <p> {{ producto.precio }}$</p>
+                </a>
+            </li>
+        </ul>
+    </div>
+
+</div>
+
+<hr>
+
+<div class="container">
+    <h5>El precios de nuestros productos incluyen IVA </h5>
+</div>
+

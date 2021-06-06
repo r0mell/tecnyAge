@@ -1,0 +1,62 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/home']" [routerLinkActive]="['active']">HOME</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/productos']" [routerLinkActive]="['active']">PRODUCTOS</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/tienda']" [routerLinkActive]="['active']">TIENDA</a>
+            </li>
+
+            <li class="nav-item active">
+                <a class="nav-link" [routerLink]="['/contacto']" [routerLinkActive]="['active']">CONTACTO</a>
+            </li>
+
+        </ul>
+    </div>
+</nav>
+
+<router-outlet></router-outlet>
+
+<footer>
+    <div class="container">
+
+        <div class="row">
+
+            <div class="col-xs-12 col-md-6">
+                <h6 class="text-muted lead">DATOS DEL ESTUDIANTE:</h6>
+                <h6 class="text-muted">
+                    Rommel Pumisacho<br> Tienda de tecnologia<br> Curso de Aplicaciones Web<br>
+                </h6>
+            </div>
+
+            <div class="col-xs-12 col-md-6">
+
+                <div class="pull-right">
+                    <h6 class="text-muted lead">NUESTRAS REDES</h6>
+                    <div class="redes-footer">
+                        <a href="https://www.facebook.com/"><img src="">facebook </a>
+                        <a href="https://twitter.com/"><img src="">twitter </a>
+                        <a href="https://www.youtube.com/"><img src="">youtube </a>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <p class="text-muted small text-right">Todos los derechos reservados. &copy;2020</p>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</footer>

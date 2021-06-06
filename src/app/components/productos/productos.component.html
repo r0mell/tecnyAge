@@ -1,0 +1,141 @@
+<div class="container" style="margin: 3%;">
+    <h2>{{title}}</h2>
+
+</div>
+
+<div class="container" *ngIf="status=='success'">
+    El producto se añadio correctamente a la tienda.  
+    <a [routerLink]="['/proyecto',saveProject._id]"> Detalles</a>.
+</div>
+
+<div class="container" *ngIf="status=='failed'">
+    El proyecto no se ha podido crear
+</div>
+
+<form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+    <div class="row">
+        <div class="col-md 10">
+
+            <div class="col-md-9" style="margin: 1%">
+
+                <label for="nombre">Nombre</label>
+                <br />
+                <!--cada campo forma parte del formulario de angular-->
+                <input class="form-control form-control-md" type="text" name="nombre" #nombre="ngModel"
+                    [(ngModel)]="producto.nombre" required pattern="[a-zA-Z]+" placeholder="Nombre del producto" />
+
+            </div>
+
+            <div class="col-md-9" style="margin: 1%">
+                <label for="descripcion">Descripcion</label>
+
+                <input class="form-control form-control-md" type="text" name="descripcion" #descripcion="ngModel"
+                    [(ngModel)]="producto.descripcion" required pattern="[a-zA-Z]+"
+                    placeholder="Descripcion del producto">
+            </div>
+
+            <div class="col-md-9" style="margin: 1%">
+                <label for="marca">Marca</label>
+
+                <input class="form-control form-control-md" type="text" name="marca" #marca="ngModel"
+                    [(ngModel)]="producto.marca" required placeholder="Marca del producto">
+            </div>
+
+
+            <div class="col-md-9" style="margin: 1%">
+                <label for="precio">Precio</label>
+
+                <input class="form-control form-control-md" type="number" name="precio" #precio="ngModel"
+                    [(ngModel)]="producto.precio" required placeholder="Precio del producto">
+
+            </div>
+
+            <div class="col-md-9" style="margin: 1%">
+                <label for="garantia">Garantia</label>
+
+                <input class="form-control form-control-md" type="number" name="garantia" #garantia="ngModel"
+                    [(ngModel)]="producto.garantia" required placeholder="Años de garantia">
+
+            </div>
+
+            <div class="col-md-9" style="margin: 1%">
+
+                <label for="image">Imagen del producto</label>
+                <!--evento que permite capturar los cambios en un input-->
+                
+                <span class="image" *ngIf="producto.image" style="float:none;">
+                    <img src="{{url+'getImage/'+producto.image}}" style="width: 100px;" />
+                </span><br>
+
+                <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)" />
+            </div>
+
+
+
+            <div class="col-md-9" style="margin: 1%">
+                <input class=" btn btn-primary" type="submit" value="Enviar"  />
+            </div>
+
+
+
+        </div>
+    </div>
+
+</form>
+
+
+
+<!-- <div class="container">
+    <h2>{{title}}</h2>
+    <div class="message success" *ngIf="status=='success'">
+        El proyecto se ha creado correctamente puedes verlo 
+        <a [routerLink]="['/proyecto',saveProject._id]"> aquí</a>.
+    </div>
+    <div class="message success" *ngIf="status=='failed'">
+        El proyecto no se ha podido crear 
+    </div>
+
+    <form #projectForm="ngForm" (ngSubmit)="onSubmit(projectForm)">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" #name="ngModel" [(ngModel)]="project.name" required/>
+            <span class="form_error" *ngIf="name.touched && !name.valid">
+                El nombre es obligatorio
+            </span>
+        </p>
+        <p>
+            <label for="description">Descripción</label>
+            <input type="text" name="description" #description="ngModel" [(ngModel)]="project.description" required/>
+            <span class="form_error" *ngIf="description.touched && !description.valid">
+                La descripción es obligatoria
+            </span>
+        </p>
+        <p>
+            <label for="category">Categoría</label>
+            <input type="text" name="category" #category="ngModel" [(ngModel)]="project.category" required/>
+            <span class="form_error" *ngIf="category.touched && !category.valid">
+                La categoría es obligatoria
+            </span>
+        </p>
+        <p>
+            <label for="year">Año de lanzamiento</label>
+            <input type="number" name="year" #year="ngModel" [(ngModel)]="project.year"/>
+        </p>
+        <p>
+            <label for="langs">Lenguajes utilizados</label>
+            <input type="text" name="langs" #langs="ngModel" [(ngModel)]="project.langs" required/>
+            <span class="form_error" *ngIf="langs.touched && !langs.valid">
+                Los lenguajes son obligatorios
+            </span>
+        </p>
+        <p>
+            <label for="image">Imagen del proyecto</label>
+           evento que permite capturar los cambios en un input
+            <span class="image" *ngIf="project.image" style="float:none;">
+                <img src="{{url+'get-image/'+project.image}}" style="width: 100px;"/>
+            </span><br/>
+            <input type="file" placeholder="Subir imagen" (change)="fileChangeEvent($event)"/>
+        </p>
+        <input type="submit" value="Enviar" [disabled]="!projectForm.form.valid"/>
+    </form>
+</div>   -->

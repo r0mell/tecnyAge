@@ -1,0 +1,65 @@
+<div class="cabeza">
+    <h3>Detalle del producto</h3>
+</div>
+
+<div class="row" style="margin-bottom: 5%; margin-top: 7%;">
+
+    <div class="col-md-1">
+    </div>
+
+    <div class="col-md-6">
+
+        <div class="row" *ngIf="producto">
+
+            <div class="col-md-6" *ngIf="producto.image">
+                <img class="detalle" src="{{url+'getImage/'+producto.image}}" *ngIf="producto.image"
+                    style="height: 250px;" />
+            </div>
+
+            <div class="col-md-6">
+                <div class="detalletxt">
+                    <h2>{{producto.nombre}}</h2>
+                    <h3>$ {{producto.precio}}.00</h3>
+                    <h4>{{producto.descripcion}}</h4>
+                    <p>Marca: {{producto.marca}}</p>
+                    <p>TecnyAge te ofrece garantia por: {{producto.garantia}} años</p>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-3">
+        <div *ngIf="confirm; then borrar else opciones"></div>
+
+    </div>
+    <div class="col-md-2">
+
+    </div>
+</div>
+<br>
+
+<h5 class="container">Politicas de envio</h5>
+<div class="container" style="margin-bottom: 50px;">
+    Costo: El costo del envío a cualquier parte del Ecuador es $5
+
+    Tiempo de Entrega: Una vez realizado el pago, Morfi tardará máximo 2 días hábiles en poner el pedido en mensajería.
+    La mensajería tardará de 5 a 13 días hábiles en entregar a tu destino, por lo que los pedidos llegan en un máximo de
+    15 días hábiles.
+
+    Stock: Todas las órdenes están sujetas a la disponibilidad del producto. Si un artículo no está en stock en el
+    momento en que realiza su pedido, le notificaremos y le reembolsaremos el importe total de su pedido, utilizando el
+    método de pago original.
+</div>
+
+<ng-template #opciones>
+    <a [routerLink]="['/editar']" class="btn btn-primary" style="margin: 5%;">Editar</a>
+    <br>
+    <a (click)="setConfirm(true)" class="btn btn-primary" style="margin: 5%;">Borrar</a>
+</ng-template>
+
+<ng-template #borrar>
+    <span class="confirm">Estas seguro de eliminar el proyecto?</span><br />
+    <a (click)="setConfirm(false)" class="btn btn-primary">Cancelar</a>
+    <a (click)="deleteProducto(producto._id)" class="btn btn-primary" style="margin: 5%;">Eliminar definitivamente</a>
+</ng-template>
